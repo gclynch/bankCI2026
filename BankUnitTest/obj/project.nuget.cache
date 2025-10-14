@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DujsQxiyX9o=",
+  "dgSpecHash": "LmQnRc4GaYc=",
   "success": true,
-  "projectFilePath": "C:\\GC\\BankCI2025\\BankUnitTest\\BankUnitTest.csproj",
+  "projectFilePath": "C:\\GC\\bankCI2025\\BankUnitTest\\BankUnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gclynch\\.nuget\\packages\\microsoft.applicationinsights\\2.22.0\\microsoft.applicationinsights.2.22.0.nupkg.sha512",
     "C:\\Users\\gclynch\\.nuget\\packages\\microsoft.codecoverage\\17.12.0\\microsoft.codecoverage.17.12.0.nupkg.sha512",
