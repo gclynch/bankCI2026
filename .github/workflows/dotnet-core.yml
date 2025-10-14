@@ -31,7 +31,7 @@ jobs:
       with:
         args: >
           -Dsonar.organization=gclynch
-          -Dsonar.projectKey=gclynch_bankCI2022
+          -Dsonar.projectKey=gclynch_bankCI2025
           -Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.verbose=true
       env:
@@ -40,7 +40,7 @@ jobs:
 
     # run standard unit tests
     - name: Run Unit Tests
-      run: dotnet test BankUnitTestProject/BankUnitTestProject.csproj  --verbosity normal -l:trx
+      run: dotnet test BankUnitTest/BankUnitTest.csproj  --verbosity normal -l:trx
 
     # run Specflow+ tests
     - name: Run Acceptance Tests 
