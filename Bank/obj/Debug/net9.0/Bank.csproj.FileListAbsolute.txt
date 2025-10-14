@@ -1,0 +1,11 @@
+C:\GC\Bank\Bank\bin\Debug\net9.0\Bank.deps.json
+C:\GC\Bank\Bank\bin\Debug\net9.0\Bank.dll
+C:\GC\Bank\Bank\bin\Debug\net9.0\Bank.pdb
+C:\GC\Bank\Bank\obj\Debug\net9.0\Bank.GeneratedMSBuildEditorConfig.editorconfig
+C:\GC\Bank\Bank\obj\Debug\net9.0\Bank.AssemblyInfoInputs.cache
+C:\GC\Bank\Bank\obj\Debug\net9.0\Bank.AssemblyInfo.cs
+C:\GC\Bank\Bank\obj\Debug\net9.0\Bank.csproj.CoreCompileInputs.cache
+C:\GC\Bank\Bank\obj\Debug\net9.0\Bank.dll
+C:\GC\Bank\Bank\obj\Debug\net9.0\refint\Bank.dll
+C:\GC\Bank\Bank\obj\Debug\net9.0\Bank.pdb
+C:\GC\Bank\Bank\obj\Debug\net9.0\ref\Bank.dll
