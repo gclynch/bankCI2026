@@ -8,14 +8,14 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
       with:
         fetch-depth: 0
 
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v5
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 10.0.x
 
     - name: Install dependencies
       run: dotnet restore Bank/
@@ -31,7 +31,7 @@ jobs:
       with:
         args: >
           -Dsonar.organization=gclynch
-          -Dsonar.projectKey=gclynch_bankCI2025
+          -Dsonar.projectKey=gclynch_bankCI2026
           -Dsonar.python.coverage.reportPaths=coverage.xml
           -Dsonar.verbose=true
       env:
@@ -52,7 +52,7 @@ jobs:
 
     # upload NuGet Package
     - name: Upload Nuget package as artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v7
       with:
         name: NuGet package
         path: ./*.nupkg
