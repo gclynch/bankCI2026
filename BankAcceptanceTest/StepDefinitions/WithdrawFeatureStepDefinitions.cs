@@ -1,37 +1,37 @@
-using Bank;
 using System;
 using Reqnroll;
+using Bank; 
 
 namespace BankAcceptanceTest.StepDefinitions
 {
     [Binding]
     public class WithdrawFeatureStepDefinitions
     {
-        private CurrentAccount? account;
+        CurrentAccount account;
 
         [Given("the balance on my account is {double}")]
-        public void GivenTheBalanceOnMyAccountIs(double balance)
+        public void GivenTheBalanceOnMyAccountIsBalance(double balance)
         {
             account = new CurrentAccount(balance);
         }
 
+        [Given("there is an overdraft limit of {double} on the account")]
+        public void GivenThereIsAnOverdraftLimitOfOverdraft_LimitOnTheAccount(double overdraftLimit)
+        {
+            account.OverdraftLimit = overdraftLimit;
+        }
+
         [When("I withdraw {double}")]
-        public void WhenIWithdraw(double amount)
+        public void WhenIWithdrawAmount(double amount)
         {
             account.Withdraw(amount);
         }
 
         [Then("the balance on the account should be {double}")]
-        public void ThenTheBalanceOnTheAccountShouldBe(double newBalance)
+        public void ThenTheBalanceOnTheAccountShouldBeNew_Balance(double newBalance)
         {
             Assert.AreEqual(account.Balance, newBalance);
-        }
+        } 
 
-        [Given("there is an overdraft limit of {double} on the account")]
-        public void GivenThereIsAnOverdraftLimitOfOnTheAccount(double overdraftlimit)
-        {
-            account.OverdraftLimit = overdraftlimit;
-            // = 0 would cause test to fail
-        }
     }
 }

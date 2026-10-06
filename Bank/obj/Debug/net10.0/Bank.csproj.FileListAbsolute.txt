@@ -10,3 +10,4 @@ C:\GC\CSD\bankCI2026\Bank\obj\Debug\net10.0\Bank.dll
 C:\GC\CSD\bankCI2026\Bank\obj\Debug\net10.0\refint\Bank.dll
 C:\GC\CSD\bankCI2026\Bank\obj\Debug\net10.0\Bank.pdb
 C:\GC\CSD\bankCI2026\Bank\obj\Debug\net10.0\ref\Bank.dll
+C:\GC\CSD\bankCI2026\Bank\obj\Debug\net10.0\Bank.csproj.Up2Date

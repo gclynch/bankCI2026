@@ -97,10 +97,15 @@ namespace BankAcceptanceTest.Features
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Withdraw money when there is no overdraft facility")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Withdraw Feature")]
-        public async System.Threading.Tasks.Task WithdrawMoneyWhenThereIsNoOverdraftFacility()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("200", "100", "100", null)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("400", "300", "100", null)]
+        public async System.Threading.Tasks.Task WithdrawMoneyWhenThereIsNoOverdraftFacility(string balance, string amount, string new_Balance, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("balance", balance);
+            argumentsOfScenario.Add("amount", amount);
+            argumentsOfScenario.Add("new_balance", new_Balance);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Withdraw money when there is no overdraft facility", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
@@ -113,13 +118,13 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 await this.ScenarioStartAsync();
 #line 8
- await testRunner.GivenAsync("the balance on my account is 100", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+ await testRunner.GivenAsync(string.Format("the balance on my account is {0}", balance), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
 #line 9
- await testRunner.WhenAsync("I withdraw 75", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+ await testRunner.WhenAsync(string.Format("I withdraw {0}", amount), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
 #line 10
- await testRunner.ThenAsync("the balance on the account should be 25", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+ await testRunner.ThenAsync(string.Format("the balance on the account should be {0}", new_Balance), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();
@@ -128,12 +133,18 @@ this.ScenarioInitialize(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Withdraw money when there is there is an overdraft facility")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Withdraw Feature")]
-        public async System.Threading.Tasks.Task WithdrawMoneyWhenThereIsThereIsAnOverdraftFacility()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("200", "500", "300", "-100", null)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DataRowAttribute("400", "500", "300", "100", null)]
+        public async System.Threading.Tasks.Task WithdrawMoneyWhenThereIsThereIsAnOverdraftFacility(string balance, string overdraft_Limit, string amount, string new_Balance, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("balance", balance);
+            argumentsOfScenario.Add("overdraft_limit", overdraft_Limit);
+            argumentsOfScenario.Add("amount", amount);
+            argumentsOfScenario.Add("new_balance", new_Balance);
             global::Reqnroll.ScenarioInfo scenarioInfo = new global::Reqnroll.ScenarioInfo("Withdraw money when there is there is an overdraft facility", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 13
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((global::Reqnroll.TagHelper.ContainsIgnoreTag(scenarioInfo.CombinedTags) || global::Reqnroll.TagHelper.ContainsIgnoreTag(featureTags)))
@@ -143,17 +154,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 await this.ScenarioStartAsync();
-#line 14
- await testRunner.GivenAsync("the balance on my account is 200", ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
+#line 19
+ await testRunner.GivenAsync(string.Format("the balance on my account is {0}", balance), ((string)(null)), ((global::Reqnroll.Table)(null)), "Given ");
 #line hidden
-#line 15
- await testRunner.AndAsync("there is an overdraft limit of 500 on the account", ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
+#line 20
+ await testRunner.AndAsync(string.Format("there is an overdraft limit of {0} on the account", overdraft_Limit), ((string)(null)), ((global::Reqnroll.Table)(null)), "And ");
 #line hidden
-#line 16
- await testRunner.WhenAsync("I withdraw 300", ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
+#line 21
+ await testRunner.WhenAsync(string.Format("I withdraw {0}", amount), ((string)(null)), ((global::Reqnroll.Table)(null)), "When ");
 #line hidden
-#line 17
- await testRunner.ThenAsync("the balance on the account should be -100", ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
+#line 22
+ await testRunner.ThenAsync(string.Format("the balance on the account should be {0}", new_Balance), ((string)(null)), ((global::Reqnroll.Table)(null)), "Then ");
 #line hidden
             }
             await this.ScenarioCleanupAsync();

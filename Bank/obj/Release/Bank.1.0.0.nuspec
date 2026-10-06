@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Bank</id>
+    <version>1.0.0</version>
+    <authors>Bank</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="3c8135506be9be9f4ce168fe7241c4f41510f09f" />
+    <dependencies>
+      <group targetFramework="net10.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\GC\CSD\bankCI2026\Bank\bin\Release\net10.0\Bank.dll" target="lib\net10.0\Bank.dll" />
+  </files>
+</package>

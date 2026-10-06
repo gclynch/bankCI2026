@@ -5,17 +5,27 @@ Feature: Withdraw Feature
 
 # scenario 1
 Scenario: Withdraw money when there is no overdraft facility
-	Given the balance on my account is 100
-	When I withdraw 75
-	Then the balance on the account should be 25
+	Given the balance on my account is <balance>
+	When I withdraw <amount>
+	Then the balance on the account should be <new_balance>
+
+Examples:
+	| balance | amount | new_balance |
+	|     200 |    100 |         100 |
+	|     400 |    300 |        100 |
 
 # scenario 2
 Scenario: Withdraw money when there is there is an overdraft facility
-	Given the balance on my account is 200
-	And there is an overdraft limit of 500 on the account
-	When I withdraw 300
-	Then the balance on the account should be -100
+	Given the balance on my account is <balance>
+	And there is an overdraft limit of <overdraft_limit> on the account
+	When I withdraw <amount>
+	Then the balance on the account should be <new_balance>
 
-# generate feature step definitions and complete
+Examples:
+	| balance | overdraft_limit | amount | new_balance |
+	|     200 |             500 |    300 |        -100 |
+	|     400 |             500 |    300 |         100 |
+
+
 # text needs to match exactly step defintion 
 # text in italics are parameters
