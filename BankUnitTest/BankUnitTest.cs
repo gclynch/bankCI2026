@@ -23,24 +23,18 @@ namespace BankUnitTestProject
             Assert.ThrowsException<ArgumentException>(() => new CurrentAccount(-5000));
         }
 
+        [DataTestMethod]
+        [DataRow(1000, 100, 50, 50)]
+        [DataRow(0, 100, 50, 50)]
+        [DataRow(1000, 100, 1000, -900)]
         [TestMethod]
-        public void TestDepositAndWithdrawal1()
+        public void TestDepositAndWithdrawal1(double overdraftLimit, double deposit, double withdrawal, double balance)
         {
             CurrentAccount acc = new CurrentAccount();
-            acc.Deposit(100);
-            acc.Withdraw(50);
-            acc.Deposit(150);
-            Assert.AreEqual(200, acc.Balance);
-        }
-
-        [TestMethod]
-        public void TestDepositAndWithdrawal2()                 // overdraw the account
-        {
-            CurrentAccount acc = new CurrentAccount();
-            acc.OverdraftLimit = 1000;
-            acc.Deposit(100);
-            acc.Withdraw(1000);
-            Assert.AreEqual(-900, acc.Balance);
+            acc.OverdraftLimit = overdraftLimit;
+            acc.Deposit(deposit);
+            acc.Withdraw(withdrawal);
+            Assert.AreEqual(balance, acc.Balance);
         }
 
         [TestMethod]
